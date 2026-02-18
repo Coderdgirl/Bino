@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bino Search Demo - WhatsApp-Based Search Service</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🔍 Bino</h1>
+            <p>Your WhatsApp Search Assistant</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Search Smarter with WhatsApp</h2>
+            <p>Find jobs, internships, services, and events instantly through WhatsApp. No app downloads, no hassle.</p>
+        </section>
+
+        <section class="chat-demo">
+            <h3>Try the Demo</h3>
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div class="chat-avatar">B</div>
+                    <div class="chat-info">
+                        <div class="chat-name">Bino</div>
+                        <div class="chat-status">Online</div>
+                    </div>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot">
+                        <div class="message-bubble">
+                            <p>Hi! I'm Bino 👋</p>
+                            <p>Try searching for: "internship", "job", "college events", or "services"</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="userInput" placeholder="Type your search query..." />
+                    <button id="sendBtn">Send</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h3>Ready to Start?</h3>
+            <p>Message Bino directly on WhatsApp and get instant results</p>
+            
+            <div class="qr-section">
+                <div class="qr-code">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://wa.me/916362985560?text=Hi%20Bino" alt="WhatsApp QR Code">
+                </div>
+                <p class="qr-text">Scan to chat with Bino</p>
+            </div>
+            
+            <a href="https://wa.me/916362985560?text=Hi%20Bino" class="cta-button" target="_blank">
+                💬 Message Bino on WhatsApp
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Bino. All rights reserved. | <a href="admin.html" style="color: white; text-decoration: underline;">Admin Dashboard</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

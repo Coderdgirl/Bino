@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Now - Bino</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+        h1 { color: #667eea; margin-bottom: 10px; }
+        .company { color: #666; font-size: 1.1rem; margin-bottom: 20px; }
+        .details { background: #f5f5f5; padding: 20px; border-radius: 10px; margin-bottom: 30px; }
+        .details h3 { color: #075e54; margin-bottom: 15px; }
+        .details p { margin-bottom: 10px; line-height: 1.6; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; font-family: inherit; }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: #25d366;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover { background: #1fa855; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #667eea; text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Search</a>
+        <h1 id="jobTitle">Software Engineering Intern</h1>
+        <div class="company" id="company">TechCorp</div>
+        
+        <div class="details">
+            <h3>About this Opportunity</h3>
+            <p><strong>Location:</strong> San Francisco, CA (Hybrid)</p>
+            <p><strong>Duration:</strong> 3-6 months</p>
+            <p><strong>Stipend:</strong> $25/hour</p>
+            <p><strong>Description:</strong> Join our engineering team to work on cutting-edge web applications. You'll collaborate with senior developers and gain hands-on experience with modern tech stack.</p>
+        </div>
+
+        <form id="applicationForm">
+            <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" required placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label>Email *</label>
+                <input type="email" required placeholder="your.email@example.com">
+            </div>
+            <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" required placeholder="+1 (555) 000-0000">
+            </div>
+            <div class="form-group">
+                <label>Resume/CV Link *</label>
+                <input type="url" required placeholder="https://drive.google.com/...">
+            </div>
+            <div class="form-group">
+                <label>Why are you interested? *</label>
+                <textarea required placeholder="Tell us why you're a great fit..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const title = params.get('title') || 'Position';
+        const company = params.get('company') || 'Company';
+        
+        const jobDetails = {
+            'Software Engineering Intern': {
+                location: 'San Francisco, CA (Hybrid)',
+                duration: '3-6 months',
+                compensation: '$25/hour',
+                description: 'Join our engineering team to work on cutting-edge web applications. You\'ll collaborate with senior developers and gain hands-on experience with React, Node.js, and AWS.'
+            },
+            'Marketing Intern': {
+                location: 'New York, NY (Remote)',
+                duration: '3 months',
+                compensation: '$20/hour',
+                description: 'Help create engaging content, manage social media campaigns, and analyze marketing metrics. Perfect for creative minds interested in digital marketing.'
+            },
+            'Data Science Intern': {
+                location: 'Boston, MA (On-site)',
+                duration: '6 months',
+                compensation: '$30/hour',
+                description: 'Work with machine learning models, analyze large datasets, and build predictive analytics tools using Python, TensorFlow, and SQL.'
+            },
+            'Full Stack Developer': {
+                location: 'Austin, TX (Hybrid)',
+                duration: 'Full-time',
+                compensation: '$90,000 - $120,000/year',
+                description: 'Build and maintain web applications using modern tech stack. Required: 3+ years experience with JavaScript, React, Node.js, and databases.'
+            },
+            'Product Manager': {
+                location: 'Seattle, WA (Hybrid)',
+                duration: 'Full-time',
+                compensation: '$110,000 - $140,000/year',
+                description: 'Lead product strategy, work with cross-functional teams, and drive product development from concept to launch. 5+ years experience required.'
+            },
+            'UX Designer': {
+                location: 'Los Angeles, CA (Remote)',
+                duration: 'Full-time',
+                compensation: '$80,000 - $100,000/year',
+                description: 'Design intuitive user interfaces, conduct user research, and create wireframes and prototypes. Portfolio required.'
+            },
+            'Tech Fest 2024': {
+                location: 'MIT Campus, Cambridge',
+                duration: 'March 15-17, 2024',
+                compensation: 'Free Entry',
+                description: 'Annual technology festival featuring workshops, hackathons, tech talks, and networking opportunities with industry leaders.'
+            },
+            'Career Fair': {
+                location: 'Stanford University',
+                duration: 'April 5, 2024',
+                compensation: 'Free Registration',
+                description: 'Meet recruiters from top tech companies, attend resume workshops, and explore internship and full-time opportunities.'
+            },
+            'Hackathon': {
+                location: 'UC Berkeley',
+                duration: 'May 10-12, 2024',
+                compensation: '$10,000 Prize Pool',
+                description: '48-hour coding competition. Build innovative solutions, win prizes, and network with sponsors and fellow developers.'
+            },
+            'Startup Networking Meetup': {
+                location: 'TechHub Downtown',
+                duration: 'Every Friday 6-8 PM',
+                compensation: 'Free',
+                description: 'Connect with entrepreneurs, investors, and startup enthusiasts. Share ideas, find co-founders, and grow your network.'
+            },
+            'AI Conference 2024': {
+                location: 'Convention Center',
+                duration: 'June 20-22, 2024',
+                compensation: '$299 Ticket',
+                description: 'Leading AI conference featuring keynotes from industry experts, hands-on workshops, and latest AI research presentations.'
+            },
+            'Music Festival': {
+                location: 'Downtown Park',
+                duration: 'July 15-16, 2024',
+                compensation: '$50-$150',
+                description: 'Two-day music festival featuring local and international artists across multiple genres. Food trucks and art installations included.'
+            },
+            'Web Development Services': {
+                location: 'Remote/On-site',
+                duration: 'Project-based',
+                compensation: 'Starting at $5,000',
+                description: 'Custom website development, e-commerce solutions, and web application development using latest technologies.'
+            },
+            'Graphic Design & Branding': {
+                location: 'Remote',
+                duration: 'Flexible',
+                compensation: 'Starting at $2,000',
+                description: 'Logo design, brand identity, marketing materials, and complete branding packages for businesses of all sizes.'
+            },
+            'Digital Marketing': {
+                location: 'Remote/Hybrid',
+                duration: 'Monthly retainer',
+                compensation: 'Starting at $1,500/month',
+                description: 'SEO, social media marketing, content creation, PPC campaigns, and comprehensive digital marketing strategies.'
+            }e/Hybrid',
+                duration: 'Monthly retainer',
+                compensation: 'Starting at $1,500/month',
+                description: 'SEO, social media marketing, content creation, PPC campaigns, and comprehensive digital marketing strategies.'
+            }
+        };
+        
+        const details = jobDetails[title] || {
+            location: 'Location TBD',
+            duration: 'Duration TBD',
+            compensation: 'Compensation TBD',
+            description: 'More details coming soon. Please submit your application to express interest.'
+        };
+        
+        document.getElementById('jobTitle').textContent = title;
+        document.getElementById('company').textContent = company;
+        document.querySelector('.details p:nth-child(2)').innerHTML = `<strong>Location:</strong> ${details.location}`;
+        document.querySelector('.details p:nth-child(3)').innerHTML = `<strong>Duration:</strong> ${details.duration}`;
+        document.querySelector('.details p:nth-child(4)').innerHTML = `<strong>Compensation:</strong> ${details.compensation}`;
+        document.querySelector('.details p:nth-child(5)').innerHTML = `<strong>Description:</strong> ${details.description}`;
+
+        document.getElementById('applicationForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                position: title,
+                company: company,
+                name: e.target[0].value,
+                email: e.target[1].value,
+                phone: e.target[2].value,
+                resume: e.target[3].value,
+                coverLetter: e.target[4].value
+            };
+            
+            try {
+                const response = await fetch('http://localhost:3000/api/applications', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                    alert('Application submitted successfully! We will contact you soon.');
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Error submitting application. Please try again.');
+                }
+            } catch (error) {
+                alert('Server error. Please make sure the backend is running.');
+            }
+        });
+    </script>
+</body>
+</html>
